@@ -1,0 +1,29 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Escape : MonoBehaviour
+{
+    public float timeStart = 15;
+    public Text textBox;
+    private bool timerIsActive = true;
+
+    // Use this for initialization
+    void Start()
+    {
+        textBox.text = timeStart.ToString();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        timeStart -= Time.deltaTime;
+        textBox.text = Mathf.Round(timeStart).ToString("f0");
+      
+        if (timeStart <= 0)
+        {
+            timeStart = 0;
+            timerIsActive = false;
+           
+        }
+        }
+    }
